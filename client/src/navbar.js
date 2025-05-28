@@ -5,7 +5,7 @@ const pageHeader = document.querySelector("header");
 let navbarLinks = [
   { navName: "Home", navLink: "./index.html" },
   { navName: "Message Board", navLink: "./messageboards.html" },
-  { navName: "Report an Issue", navLink: "#" },
+  { navName: "Report an Issue", navLink: "./reporting.html" },
 ];
 
 const navBar = document.createElement("ul");
