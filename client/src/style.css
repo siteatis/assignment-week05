@@ -14,7 +14,7 @@ body {
 .homeimage {
   position: relative;
   text-align: center;
-  height: 100dvh;
+  height: 80dvh;
   overflow: hidden;
 }
 
@@ -30,7 +30,7 @@ body {
 }
 
 #parkimage {
-  height: 100dvh;
+  height: 80dvh;
   position: relative;
   z-index: -1;
   right: 150px;
