@@ -1,0 +1,44 @@
+TABLE bins (
+	id pk auto,
+	lat NUMERIC,
+	long NUMERIC,
+	description VARCHAR(60),
+	percent_full INT2, // A projected fullness value we use to decide when bin-emptying resources should be scheduled to arrive
+)
+
+TABLE locations (
+	id pk auto,
+	lat NUMERIC,
+	long NUMERIC,
+)
+
+TABLE incidents (
+	id pk auto,
+	type VARCHAR(1), // 'P', 'G', 'V'
+	lat NUMERIC, // lat/long for incidents is stretch goal for choosing actual loc rather than from dropdown
+	long NUMERIC,
+	location_id pk,
+)
+
+TABLE reports (
+	id pk auto,
+	when_reported TIMESTAMP,
+	username TEXT // Have used TEXT for consistency, as this is the datatype I see Luke has used for messages
+	bin_id pk,
+	incident_id pk,
+	comments TEXT, // Optional, for anything the reporter didn't think was already obvious
+)
+
+// TYPE {report_type},
+// No, all DB relationships are stretch goal, for now hardcode report types: binfull, dogpoop, graffiti, vandalism
+// and all data relationships will be done manually in JS
+// Actually doing anything with all the reports is now a stretch goal
+// luke says dropdown note below means a dropdown leading to a more specific selector, which might also be a dropdown
+BL: "dropdown to select form"?
+luke/ryan's whiteboard notes re form:
+- name box
+- dropdown to select form
+- subform (dropdown to select bin)
+- text box (extra info)
+
+// Had trouble with seed.js creating the data. Unfamiliar with SQL data types and had used the names from Supabase, which turn out to be different. Then turned out that although I'd eliminated TINYINT as a cause, the site I'd found when I searched for it had misled me by saying it was supported in SQL, when in fact it's supported in MS SQL and MySQL but not in PostgreSQL. All sorted now.
