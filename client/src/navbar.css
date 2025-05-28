@@ -1,0 +1,24 @@
+header {
+  background-color: gray;
+  width: 100%;
+  padding: 10px;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 20px;
+}
+
+.navbarlinks {
+  all: unset;
+  font-size: large;
+  font-family: sans-serif;
+}
+
+.navbarlinks:hover {
+  background-color: rgb(0, 0, 0, 0.3);
+  cursor: pointer;
+  text-decoration-line: underline;
+}
