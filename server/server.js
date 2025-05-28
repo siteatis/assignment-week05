@@ -24,7 +24,7 @@ app.post("/addMsgBoard", async (req, res) => {
   const body = req.body;
   const query = await db.query(
     `INSERT INTO messageboards (name, updated) VALUES ($1, $2) RETURNING id`,
-    [body.user_name, body.time_stamp]
+    [body.name, body.time_stamp]
   );
   res.json(query.rows);
 });

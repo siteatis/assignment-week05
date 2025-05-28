@@ -2,17 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./messageboards.css" />
-    <script type="module" src="./messageboards.js" defer></script>
-    <link rel="stylesheet" href="./navbar.css" />
-    <script type="module" src="./navbar.js" defer></script>
+    <link rel="stylesheet" href="./src/messageboards.css" />
+    <script type="module" src="./src/messageboards.js" defer></script>
+    <link rel="stylesheet" href="./src/navbar.css" />
+    <script type="module" src="./src/navbar.js" defer></script>
     <title>Message Boards</title>
   </head>
   <body>
     <header></header>
-    <main><section id="messageboards"></section></main>
+    <main>
+      <section id="messageboards"></section>
+      <form id="new-form">
+        <fieldset>
+          <legend>New Board</legend>
+          <label for="name">Board Name:</label>
+          <input type="text" name="name" />
+          <button type="submit">Submit</button>
+        </fieldset>
+      </form>
+    </main>
     <footer></footer>
   </body>
 </html>
