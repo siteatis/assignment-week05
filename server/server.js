@@ -29,8 +29,12 @@ app.post("/addMsgBoard", async (req, res) => {
   res.json(query.rows);
 });
 
-app.get("/getMsgs", async (req, res) => {
-  const query = await db.query(`SELECT * FROM messages ORDER BY id ASC`);
+app.get("/getMsgs/:id", async (req, res) => {
+  const params = req.params;
+  const query = await db.query(
+    `SELECT * FROM messages WHERE messageboardid=($1) ORDER BY id ASC`,
+    [params.id]
+  );
   let data = query.rows;
   res.json(data);
 });
