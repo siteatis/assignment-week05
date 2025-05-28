@@ -5,9 +5,17 @@
   box-sizing: border-box;
 }
 
+body {
+  height: 100dvh;
+  width: 100dvw;
+  overflow-x: hidden;
+}
+
 .homeimage {
   position: relative;
   text-align: center;
+  height: 100dvh;
+  overflow: hidden;
 }
 
 .opbox {
@@ -17,4 +25,19 @@
   transform: translate(-50%, -50%);
   background-color: rgb(128, 128, 128, 0.9);
   padding: 30px;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+#parkimage {
+  height: 100dvh;
+  position: relative;
+  z-index: -1;
+  right: 150px;
+}
+
+@media (min-width: 844px) {
+  #parkimage {
+    right: 0;
+  }
 }

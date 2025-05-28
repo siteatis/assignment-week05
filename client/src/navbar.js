@@ -1,3 +1,5 @@
+// Navbar
+
 const pageHeader = document.querySelector("header");
 
 let navbarLinks = [
@@ -25,3 +27,26 @@ function createNavBar(array) {
 }
 
 createNavBar(navbarLinks);
+
+// ====================================================================================
+// Footer
+
+const pageFooter = document.querySelector("footer");
+
+let footerElements = [
+  { text: "Community Park Maintenance" },
+  { text: "Phone: 0103202010230302" },
+  { text: "communityparkmaintenance@gov.co.uk" },
+  { text: "Office Address: council offices, 10 high street, Norwich, NR1 3dr" },
+];
+
+function createFooter(array) {
+  array.forEach((item) => {
+    const pTag = document.createElement("p");
+    pTag.textContent = item.text;
+    pTag.className = "footerp";
+    pageFooter.appendChild(pTag);
+  });
+}
+
+createFooter(footerElements);
