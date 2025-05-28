@@ -4,3 +4,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.homeimage {
+  position: relative;
+  text-align: center;
+}
+
+.opbox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(128, 128, 128, 0.9);
+  padding: 30px;
+}
