@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./navbar.css" />
+    <script type="module" src="./navbar.js" defer></script>
+    <link rel="stylesheet" href="./reporting.css" />
+    <script type="module" src="./reporting.js" defer></script>
+    <title>Report An Issue</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div id="main-form">
+        <form action="">
+          <label for="username">What should we call you?</label>
+          <input type="text" name="username" required />
+          <fieldset id="report-types">
+            <legend>What do you need to report?</legend>
+            <label for="report-type">Bin full</label>
+            <input type="radio" name="report-type" value="B" />
+            <label for="report-type">Dog foul</label>
+            <input type="radio" name="report-type" value="P" />
+            <label for="report-type">Graffiti</label>
+            <input type="radio" name="report-type" value="G" />
+            <label for="report-type">Vandalism</label>
+            <input type="radio" name="report-type" value="V" />
+          </fieldset>
+          <div id="if-bin" class="hid-B" hidden>
+            <label for="bins-dropdown">Which bin is full?</label>
+            <select name="bins-dropdown">
+              <option value="" hidden>Choose:</option>
+              <!-- All bins (from DB) will be appended as further options -->
+              <!-- e.g. <option value="1">DescriptionOfThisBin</option> -->
+            </select>
+          </div>
+          <div id="if-foul" class="hid-P" hidden>
+            <label for="foul-dropdown">Where is the fouling?</label>
+            <select name="foul-dropdown">
+              <option value="" hidden>Choose:</option>
+              <!-- All parts of park (hardcoded) will be appended as further options -->
+            </select>
+          </div>
+          <div id="if-not-bin-foul" class="hid-G hid-V" hidden>
+            <label for="comments">Please describe it here:</label>
+            <textarea name="comments" rows="8" required></textarea>
+          </div>
+          <button type="submit">Submit Your Report</button>
+        </form>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
