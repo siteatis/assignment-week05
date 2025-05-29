@@ -11,6 +11,19 @@ app.use(express.json());
 
 app.listen(3000, () => console.log("Server running on 3000"));
 
+app.post("/submitReport", (req, rsp) => {
+  const qrystr = `INSERT INTO reports (when_reported, username, bin_id, incident_id, comments) VALUES ($1,$2,$3,$4,$5)`;
+  const b = req.body;
+  rsp.json(
+    db.query(qrystr, [b.when_reported, b.username, b.bin_id, 0, b.comments])
+  );
+});
+
+app.get("/getBins", async (req, rsp) => {
+  const qResult = await db.query(`SELECT id, description FROM bins`);
+  rsp.json(qResult.rows);
+});
+
 app.post("/addMsg", async (req, res) => {
   const body = req.body;
   const query = await db.query(
