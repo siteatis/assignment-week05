@@ -15,35 +15,28 @@ h1 {
   gap: 5px;
 }
 
-#messages div {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.mainCon {
   border: 2px solid black;
-  padding: 5px;
+  padding: 10px;
 }
 
-#messages div {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  border: 2px solid black;
-  padding: 5px;
+.nDDcon {
+  display: flex;
+  gap: 10px;
 }
 
 .username {
-  grid-column: 1/2;
-  grid-row: 1/2;
+  margin-right: auto;
+  order: 1;
+  font-weight: bold;
 }
-.message {
-  grid-column: 1/-1;
-  grid-row: 2/3;
-}
+
 .datemade {
-  grid-column: 3/4;
-  grid-row: 1/2;
+  order: 3;
 }
 .deletebtn {
   background-color: rgb(255, 120, 120);
+  order: 2;
 }
 .deletebtn:hover {
   background-color: rgb(255, 0, 0);

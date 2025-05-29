@@ -8,6 +8,10 @@ h1 {
   text-align: center;
 }
 
+main {
+  min-height: 80dvh;
+}
+
 #messageboards {
   display: flex;
   flex-direction: column;
@@ -16,22 +20,24 @@ h1 {
 }
 
 #messageboards div {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   border: 2px solid black;
   padding: 5px;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 .name {
-  grid-column: 1/2;
-  grid-row: 1/2;
+  order: 1;
+  margin-right: auto;
 }
 .lastupdated {
-  grid-column: 3/4;
-  grid-row: 1/2;
+  order: 3;
 }
 .deletebtn {
   background-color: rgb(255, 120, 120);
+  order: 2;
 }
 .deletebtn:hover {
   background-color: rgb(255, 0, 0);

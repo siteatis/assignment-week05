@@ -2,6 +2,7 @@ header {
   background-color: gray;
   width: 100dvw;
   padding: 20px;
+  min-height: 10dvh;
 }
 
 .navbar {
@@ -30,6 +31,11 @@ footer {
   padding: 30px;
   text-align: center;
   font-family: sans-serif;
+  min-height: 10dvh;
+}
+
+main {
+  min-height: 80dvh;
 }
 
 @media (max-width: 844px) {
