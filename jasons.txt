@@ -1,3 +1,7 @@
+// Had trouble with seed.js creating the data. Unfamiliar with SQL data types and had used the names from Supabase, which turn out to be different. Then turned out that although I'd eliminated TINYINT as a cause, the site I'd found when I searched for it had misled me by saying it was supported in SQL, when in fact it's supported in MS SQL and MySQL but not in PostgreSQL. All sorted now.
+
+Due to a strange sync problem with the order of operation (probably caused due to lack of knowledge so far of git branching & merging, but there isn't time to ascertain what happened as the project deadline is only a few hours away at time of writing), a .gitignore file somehow got out of sync and this caused a .gitignored file to make it into the push. By unlucky coincidence that file contained a secret. The problem was spotted by the pull request reviewer and we immediately revoked the secret and reviewed the security situation, finding that no further security action was required. We then restored the .gitignore and manually deleted the incorrect file. Later that day I discovered that a GitHub service called "GitGuardian" had also detected the problem. If it's best practice, I may later edit the history and remove all references.
+
 TABLE bins (
 	id pk auto,
 	lat NUMERIC,
@@ -40,5 +44,3 @@ luke/ryan's whiteboard notes re form:
 - dropdown to select form
 - subform (dropdown to select bin)
 - text box (extra info)
-
-// Had trouble with seed.js creating the data. Unfamiliar with SQL data types and had used the names from Supabase, which turn out to be different. Then turned out that although I'd eliminated TINYINT as a cause, the site I'd found when I searched for it had misled me by saying it was supported in SQL, when in fact it's supported in MS SQL and MySQL but not in PostgreSQL. All sorted now.
