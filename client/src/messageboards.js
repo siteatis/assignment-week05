@@ -27,6 +27,7 @@ async function addBoard(values) {
   const data = await response.json();
   ids.push(data);
   localStorage.setItem("messageboards", JSON.stringify(ids));
+  work();
 }
 
 function buildBoard(data) {
@@ -47,7 +48,6 @@ function buildBoard(data) {
 
   deleteBtn.addEventListener("click", () => {
     deleteData(data);
-    work();
   });
 
   contaner.appendChild(link);
@@ -79,11 +79,12 @@ async function work() {
   });
 }
 
-function deleteData(values) {
-  fetch(`${url}/deleteMsgBoard/${values.id}`, {
+async function deleteData(values) {
+  await fetch(`${url}/deleteMsgBoard/${values.id}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   });
+  work();
 }
 
 work();

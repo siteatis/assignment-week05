@@ -34,6 +34,7 @@ async function addMsg(values) {
   const data = await response.json();
   ids.push(data);
   localStorage.setItem("messages", JSON.stringify(ids));
+  work();
 }
 
 function updateBoard(values) {
@@ -63,7 +64,6 @@ function buildMessage(data) {
 
   deleteBtn.addEventListener("click", () => {
     deleteData(data);
-    work();
   });
 
   contaner.appendChild(userName);
@@ -96,11 +96,12 @@ async function work() {
   });
 }
 
-function deleteData(values) {
-  fetch(`${url}/deleteMsg/${values.id}`, {
+async function deleteData(values) {
+  await fetch(`${url}/deleteMsg/${values.id}`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   });
+  work();
 }
 
 work();
