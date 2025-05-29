@@ -35,4 +35,7 @@ h1 {
 }
 #new-form fieldset {
   padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
