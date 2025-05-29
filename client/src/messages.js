@@ -50,11 +50,16 @@ function buildMessage(data) {
   const message = document.createElement("p");
   const dateMade = document.createElement("p");
   const deleteBtn = document.createElement("button");
+  const nameDateDeletecon = document.createElement("div");
+  const messageCon = document.createElement("div");
 
   userName.className = "username";
   message.className = "message";
   dateMade.className = "datemade";
   deleteBtn.className = "deletebtn";
+  nameDateDeletecon.className = "nDDcon";
+  messageCon.className = "messageCon";
+  contaner.className = "mainCon";
 
   userName.textContent = data.username;
   message.textContent = data.message;
@@ -66,15 +71,18 @@ function buildMessage(data) {
     deleteData(data);
   });
 
-  contaner.appendChild(userName);
-  contaner.appendChild(dateMade);
+  nameDateDeletecon.appendChild(userName);
+  nameDateDeletecon.appendChild(dateMade);
   if (
     ids.find((o) => {
       return o[0].id === data.id;
     })
   )
-    contaner.appendChild(deleteBtn);
-  contaner.appendChild(message);
+    nameDateDeletecon.appendChild(deleteBtn);
+  messageCon.appendChild(message);
+  contaner.appendChild(nameDateDeletecon);
+  contaner.appendChild(messageCon);
+
   page.appendChild(contaner);
 }
 
