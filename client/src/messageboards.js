@@ -39,14 +39,15 @@ function buildBoard(data) {
   update.className = "lastupdated";
   deleteBtn.className = "deletebtn";
 
-  link.href = `./messages?id=${data.id}&title=${data.name}`;
+  link.href = `messages?id=${data.id}&title=${data.name}`;
   link.textContent = data.name;
   const date = new Date(Number(data.updated));
   update.textContent = "last updated: " + date.toLocaleString();
   deleteBtn.textContent = `Delete`;
 
   deleteBtn.addEventListener("click", () => {
-    deleteData(item);
+    deleteData(data);
+    work();
   });
 
   contaner.appendChild(link);

@@ -58,11 +58,12 @@ function buildMessage(data) {
   userName.textContent = data.username;
   message.textContent = data.message;
   const date = new Date(Number(data.timestamp));
-  dateMade.textContent = "date made: " + date.toLocaleString();
+  dateMade.textContent = "Date made: " + date.toLocaleString();
   deleteBtn.textContent = `Delete`;
 
   deleteBtn.addEventListener("click", () => {
-    deleteData(item);
+    deleteData(data);
+    work();
   });
 
   contaner.appendChild(userName);
