@@ -35,10 +35,14 @@ function buildBoard(data) {
   const update = document.createElement("p");
   const deleteBtn = document.createElement("button");
 
-  link.href = `./messages?id=${data.id}`;
+  link.className = "name";
+  update.className = "lastupdated";
+  deleteBtn.className = "deletebtn";
+
+  link.href = `./messages?id=${data.id}&title=${data.name}`;
   link.textContent = data.name;
   const date = new Date(Number(data.updated));
-  update.textContent = date.toLocaleString();
+  update.textContent = "last updated: " + date.toLocaleString();
   deleteBtn.textContent = `Delete`;
 
   deleteBtn.addEventListener("click", () => {
