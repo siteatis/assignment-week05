@@ -1,8 +1,13 @@
-const url = "https://commumity-server.onrender.com";
-// const url = "http://localhost:3000";
+// const url = "https://commumity-server.onrender.com";
+const url = "http://localhost:3000";
 const page = document.getElementById("messages");
 const form = document.getElementById("new-form");
 const id = new URLSearchParams(window.location.search).get(`id`);
+let ids = [];
+try {
+  const temp = JSON.parse(localStorage.getItem("messages"));
+  ids = temp ? temp : [];
+} catch (error) {}
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -12,6 +17,7 @@ form.addEventListener("submit", (event) => {
   values.message_board_id = id;
   console.log(values);
   addMsg(values);
+  updateBoard(values);
   form.reset();
 });
 
@@ -23,6 +29,14 @@ async function addMsg(values) {
   });
   const data = await response.json();
   ids.push(data);
+  localStorage.setItem("messages", JSON.stringify(ids));
+}
+
+function updateBoard(values) {
+  fetch(`${url}/updateMsgBoard/${id}/${values.time_stamp}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+  });
 }
 
 function buildMessage(data) {
@@ -30,20 +44,32 @@ function buildMessage(data) {
   const userName = document.createElement("p");
   const message = document.createElement("p");
   const dateMade = document.createElement("p");
+  const deleteBtn = document.createElement("button");
 
-  userName.textContent = data.user_name;
+  userName.textContent = data.username;
   message.textContent = data.message;
-  const date = new Date(Number(data.time_stamp));
+  const date = new Date(Number(data.timestamp));
   dateMade.textContent = date.toLocaleString();
+  deleteBtn.textContent = `Delete`;
+
+  deleteBtn.addEventListener("click", () => {
+    deleteData(item);
+  });
 
   contaner.appendChild(userName);
   contaner.appendChild(message);
   contaner.appendChild(dateMade);
+  if (
+    ids.find((o) => {
+      return o[0].id === data.id;
+    })
+  )
+    contaner.appendChild(deleteBtn);
   page.appendChild(contaner);
 }
 
 async function getData() {
-  const response = await fetch(url + "/getMsg/" + id);
+  const response = await fetch(url + "/getMsgs/" + id);
   const data = await response.json();
   return data;
 }
@@ -60,7 +86,14 @@ async function work() {
   });
 }
 
+function deleteData(values) {
+  fetch(`${url}/deleteMsg/${values.id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
+}
+
 work();
 setInterval(() => {
   work();
-}, 1000);
+}, 5000);
