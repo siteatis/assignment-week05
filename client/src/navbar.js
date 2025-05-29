@@ -3,7 +3,7 @@
 const pageHeader = document.querySelector("header");
 
 let navbarLinks = [
-  { navName: "Home", navLink: "main" },
+  { navName: "Home", navLink: "index" },
   { navName: "Message Board", navLink: "messageboards" },
   { navName: "Report an Issue", navLink: "reporting" },
 ];

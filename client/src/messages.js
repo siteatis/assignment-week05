@@ -74,8 +74,8 @@ function buildMessage(data) {
   nameDateDeletecon.appendChild(userName);
   nameDateDeletecon.appendChild(dateMade);
   if (
-    ids.find((o) => {
-      return o[0].id === data.id;
+    ids.find((values) => {
+      return values[0].id === data.id;
     })
   )
     nameDateDeletecon.appendChild(deleteBtn);
