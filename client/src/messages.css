@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+}
+
+#messages {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  gap: 5px;
+}
+
+#messages div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 2px solid black;
+  padding: 5px;
+}
+
+#messages div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  border: 2px solid black;
+  padding: 5px;
+}
+
+.username {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+.message {
+  grid-column: 1/-1;
+  grid-row: 2/3;
+}
+.datemade {
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+.deletebtn {
+  background-color: rgb(255, 120, 120);
+}
+.deletebtn:hover {
+  background-color: rgb(255, 0, 0);
+}
+
+#new-form {
+  margin: 10px;
+  width: auto;
+}
+#new-form fieldset {
+  padding: 6px;
+}

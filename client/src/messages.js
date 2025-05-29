@@ -2,12 +2,16 @@
 const url = "http://localhost:3000";
 const page = document.getElementById("messages");
 const form = document.getElementById("new-form");
-const id = new URLSearchParams(window.location.search).get(`id`);
+const params = new URLSearchParams(window.location.search);
+const id = params.get(`id`);
 let ids = [];
 try {
   const temp = JSON.parse(localStorage.getItem("messages"));
   ids = temp ? temp : [];
 } catch (error) {}
+
+const title = document.getElementById("titel");
+title.textContent = params.get(`title`);
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -46,10 +50,15 @@ function buildMessage(data) {
   const dateMade = document.createElement("p");
   const deleteBtn = document.createElement("button");
 
+  userName.className = "username";
+  message.className = "message";
+  dateMade.className = "datemade";
+  deleteBtn.className = "deletebtn";
+
   userName.textContent = data.username;
   message.textContent = data.message;
   const date = new Date(Number(data.timestamp));
-  dateMade.textContent = date.toLocaleString();
+  dateMade.textContent = "date made: " + date.toLocaleString();
   deleteBtn.textContent = `Delete`;
 
   deleteBtn.addEventListener("click", () => {
@@ -57,7 +66,6 @@ function buildMessage(data) {
   });
 
   contaner.appendChild(userName);
-  contaner.appendChild(message);
   contaner.appendChild(dateMade);
   if (
     ids.find((o) => {
@@ -65,6 +73,7 @@ function buildMessage(data) {
     })
   )
     contaner.appendChild(deleteBtn);
+  contaner.appendChild(message);
   page.appendChild(contaner);
 }
 
@@ -96,4 +105,4 @@ function deleteData(values) {
 work();
 setInterval(() => {
   work();
-}, 5000);
+}, 60000);
