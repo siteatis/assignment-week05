@@ -13,7 +13,6 @@ form.addEventListener("submit", (event) => {
   const data = new FormData(form);
   const values = Object.fromEntries(data);
   values.time_stamp = new Date().getTime();
-  console.log(values);
   addBoard(values);
   form.reset();
 });
@@ -53,8 +52,8 @@ function buildBoard(data) {
   contaner.appendChild(link);
   contaner.appendChild(update);
   if (
-    ids.find((o) => {
-      return o[0].id === data.id;
+    ids.find((values) => {
+      return values[0].id === data.id;
     })
   )
     contaner.appendChild(deleteBtn);
