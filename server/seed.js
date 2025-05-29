@@ -38,7 +38,11 @@ async function doReportingFormSeeding() {
         incident_id INT,
         comments TEXT
     )`,
-  ])
+    `INSERT INTO bins (lat,long,description,percent_full) VALUES (0,0,'Bin by main entrance',0)`,
+    `INSERT INTO bins (lat,long,description,percent_full) VALUES (0,0,'Bin by newt pond',0)`,
+    `INSERT INTO bins (lat,long,description,percent_full) VALUES (0,0,'Jumbo green dumpster',0)`,
+    `INSERT INTO locations (lat,long) VALUES (0,0)`,
+  ]) // TODO: Don't forget extra field needs adding to locations table
     await db.query(q);
   console.log("Reporting form tables (re-)created successfully!");
 }
