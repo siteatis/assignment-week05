@@ -22,6 +22,14 @@ h1 {
   padding: 5px;
 }
 
+.name {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+.lastupdated {
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
 .deletebtn {
   background-color: rgb(255, 120, 120);
 }
