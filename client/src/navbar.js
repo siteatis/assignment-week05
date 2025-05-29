@@ -3,9 +3,9 @@
 const pageHeader = document.querySelector("header");
 
 let navbarLinks = [
-  { navName: "Home", navLink: "./index.html" },
-  { navName: "Message Board", navLink: "./messageboards.html" },
-  { navName: "Report an Issue", navLink: "./reporting.html" },
+  { navName: "Home", navLink: "main" },
+  { navName: "Message Board", navLink: "messageboards" },
+  { navName: "Report an Issue", navLink: "reporting" },
 ];
 
 const navBar = document.createElement("ul");
@@ -35,8 +35,8 @@ const pageFooter = document.querySelector("footer");
 
 let footerElements = [
   { text: "Community Park Maintenance" },
-  { text: "Phone: 0103202010230302" },
-  { text: "communityparkmaintenance@gov.co.uk" },
+  { text: "Phone: 01234567890" },
+  { text: "Email: communityparkmaintenance@gov.co.uk" },
   { text: "Office Address: council offices, 10 high street, Norwich, NR1 3dr" },
 ];
 
@@ -44,7 +44,7 @@ function createFooter(array) {
   array.forEach((item) => {
     const pTag = document.createElement("p");
     pTag.textContent = item.text;
-    pTag.className = "footerp";
+    pTag.className = "footer";
     pageFooter.appendChild(pTag);
   });
 }
